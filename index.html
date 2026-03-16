@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/webp" href="img/favicon-calc.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+<title>Calculadora de Juros Compostos</title>
+</head>
+
+
+
+<body>
+    <div class="quadro">
+        <h1>Calculadora de Juros Compostos</h1>
+        <p>Calcule o rendimento de valores de acordo com o <b>valor inicial, aportes mensais,</b> adicionando uma <b>taxa de juros e o período desejado.</b></p>
+        <div class="inputs">
+            <div class="input-group">
+                <label for="valorInicial">Valor Inicial</label>
+                <input id="valorInicial" type="text" placeholder="Valor Inicial (R$)" inputmode="numeric">
+            </div>
+            <div class="input-group">
+                <label for="valorMensal">Valor Mensal</label>
+                <input id="valorMensal" type="text" placeholder="Valor Mensal (R$)" inputmode="numeric">
+            </div>
+
+            <div class="input-group">
+                <label for="taxaJuros">Taxa de Juros</label>
+                <div class="input-row">
+                    <input id="taxaJuros" type="text" placeholder="Taxa de Juros" inputmode="decimal">
+                    <select id="tipoTaxa">
+                        <option value="mensal">Mensal</option>
+                        <option value="anual">Anual</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="periodo">Período</label>
+                <div class="input-row">
+                    <input id="periodo" type="number" placeholder="Período">
+                    <select id="tipoPeriodo">
+                        <option value="meses">Meses</option>
+                        <option value="anos">Anos</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="mensagem-erro" class="mensagem-erro"></div>
+
+        <div class="btns">
+            <button class="btn-calculate" onclick="calcular()">Calcular</button>
+            <button class="btn-clear" onclick="limpar()">Limpar</button>
+        </div>
+    </div>
+
+    <div class="quadro" id="output-container">
+        <div id="resumo"></div>
+        <div id="grafico-container">
+            <canvas id="grafico"></canvas>
+        </div>
+        <div id="tabela-container">
+            <div id="tabela-wrapper">
+                <table border="1" id="tabela">
+                    <thead>
+                        <tr>
+                            <th>Mês</th>
+                            <th>Juros</th>
+                            <th>Total Investido</th>
+                            <th>Total Juros</th>
+                            <th>Total Acumulado</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
